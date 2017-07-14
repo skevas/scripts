@@ -2,7 +2,7 @@
 #
 # Generates an animated GIF from the given input files
 #
-# Version: 0.1 2017-07-07
+# Version: 0.2 2017-07-14
 #
 # Raphael Ernst
 #
@@ -17,6 +17,11 @@
 # - Deletes files starting with "resized_" in the current folder
 # - Images and script must be in the same folder
 # - Overwrites "animation.gif"
+
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+	echo "Usage: `basename $0` files"
+	exit 0
+fi
 
 PREFIX="resized_"
 ANIMATION="animation.gif"
@@ -53,3 +58,5 @@ convert -delay 100 $[PREFIX]* $ANIMATION
 
 echo "Removing resized files"
 rm $[PREFIX]*
+
+exit 0
