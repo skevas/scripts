@@ -28,6 +28,7 @@ ANIMATION="animation.gif"
 
 MAX_WIDTH=0
 MAX_HEIGHT=0
+DELAY=200
 
 echo "Image size"
 for i in "$@" 
@@ -54,7 +55,7 @@ do
 done
 
 echo "Animation"
-convert -delay 100 $[PREFIX]* $ANIMATION
+convert -delay $[DELAY] $[PREFIX]* $ANIMATION
 
 echo "Removing resized files"
 rm $[PREFIX]*
